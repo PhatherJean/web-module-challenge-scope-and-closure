@@ -83,19 +83,38 @@ For example: invoking finalScore(inning, 9) might return this object:
 }
 */ 
 
-function finalScore(inning, num){
+function finalScore(inningCB, num){
 
-  /*Code Here*/
+    const finalPoints = {};
+    let homePoint = 0;
+    let awayPoint = 0;
 
-}
+    for(let b = 0; b < 9; b++){
+        //const currentPoint = num(inningCB)
+        homePoint = homePoint + finalScore.Home
+        awayPoint = awayPoint + finalScore.Away
+        finalPoints.push(`Inning ${b + 1} and the score is: Home ${finalScore.Home} - Away ${inning.Away}.`)
+    }//closure for the forloop
+    return {
+        Home:inningCB(),
+        Away:inningCB()
+  }//closure of the return object
+console.log(`this is the final score ${finalScore()} `)  
+}//closure for the finalScore function
+console.log(finalScore(inning,9));
+console.log(`this is the final score ${finalPoints}`) 
+
 
 /* Task 4: 
 // create a function called getInningScore 
 // the function should take the inning function as an argument 
 // it should return an object with with a score for home and a score for away that that populates from invoking the inning callback. */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inning) {
+  return{
+    Home: inning(),
+    Away: inning()
+  }
 }
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
@@ -141,7 +160,7 @@ Use the scoreboard function below to do the following:
   */
 
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard(getInningScore, inning, num) {
   /* CODE HERE */
 }
 
