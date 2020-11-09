@@ -28,11 +28,16 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  Count is inside the function scope in counter1 and in counter2 the count is in the global scope.
+
   2. Which of the two uses a closure? How can you tell?
-  
+  Counter2 is the one using closure because it has to reach outside to get the variable needed to complete the function
+
   3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
+  If the function is only used for a specific thing and everything that is needed to run can be put in the function like a simple yes or no true or false hi or low.
+
+     counter2 be better?
+     When there is more than one value or item that change base on an user input   
 */
 
 // counter1 code
@@ -61,10 +66,8 @@ Use the inning function below to do the following:
   For example: invoking inning() should return a numerical score value of 0, 1, or 2
 */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+   return Math.floor(Math.random()*3)
 }
 
 /* Task 3: finalScore()
@@ -80,7 +83,7 @@ For example: invoking finalScore(inning, 9) might return this object:
 }
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(inning, num){
 
   /*Code Here*/
 
