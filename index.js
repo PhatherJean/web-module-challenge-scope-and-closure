@@ -82,27 +82,33 @@ For example: invoking finalScore(inning, 9) might return this object:
   "Away": 5
 }
 */ 
-
-function finalScore(inningCB, num){
-
-    const finalPoints = {};
-    let homePoint = 0;
-    let awayPoint = 0;
-
-    for(let b = 0; b < 9; b++){
-        //const currentPoint = num(inningCB)
-        homePoint = homePoint + finalScore.Home
-        awayPoint = awayPoint + finalScore.Away
-        finalPoints.push(`Inning ${b + 1} and the score is: Home ${finalScore.Home} - Away ${inning.Away}.`)
-    }//closure for the forloop
-    return {
-        Home:inningCB(),
-        Away:inningCB()
-  }//closure of the return object
-console.log(`this is the final score ${finalScore()} `)  
+function finalScore(inningCB, numPlay){
+  let finalGame = {
+    Home:0,
+    Away:0
+  };
+    const counterInning = [];
+  for(let b = 0; b < numPlay; b++){
+    let homePoints = inning();
+    let awayPoints = inning();
+    finalGame.Home = homePoints + finalGame.Home;
+    finalGame.Away = awayPoints + finalGame.Away;
+    if(b === numPlay-1){ counterInning.push(`Final score: Away ${finalGame.Away}- Home ${finalGame.Home}`) 
+      if(finalGame.Away === finalGame.Home){
+      
+      counterInning.push(`Looks like where going into overtime`);
+    }
+      
+    }
+    else{
+      counterInning.push( `Inning ${b + 1}: Away ${finalGame.Away}- Home ${finalGame.Home}`)
+    }
+      
+  }//forloop closing
+  console.log(counterInning);
+  return finalGame;
 }//closure for the finalScore function
 console.log(finalScore(inning,9));
-console.log(`this is the final score ${finalPoints}`) 
 
 
 /* Task 4: 
@@ -110,12 +116,13 @@ console.log(`this is the final score ${finalPoints}`)
 // the function should take the inning function as an argument 
 // it should return an object with with a score for home and a score for away that that populates from invoking the inning callback. */
 
-function getInningScore(inning) {
-  return{
-    Home: inning(),
-    Away: inning()
+function getInningScore(inningCB) {
+return {
+    Home: inningCB(),
+    Away: inningCB()
   }
 }
+console.log(getInningScore(inning));
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
   1. Receive a callback function, that you create, called `getInningScore`
@@ -160,10 +167,10 @@ Use the scoreboard function below to do the following:
   */
 
 
-function scoreboard(getInningScore, inning, num) {
-  /* CODE HERE */
+function scoreboard(finalScore, inningCB, numPlay) {
+      return finalScore(inningCB,numPlay);
 }
-
+scoreboard(finalScore,inning,9)
 
 
 
